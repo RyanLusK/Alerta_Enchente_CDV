@@ -1,0 +1,5 @@
+# Ignora ambientes virtuais e chaves secretas
+.env
+__pycache__/
+venv/
+*.pyc
