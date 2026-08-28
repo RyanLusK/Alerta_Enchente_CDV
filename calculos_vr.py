@@ -1,9 +1,8 @@
 import logging
 from datetime import datetime
 
-# ==========================================
-# 1. MOTOR PREDITIVO (Velocidade e Tendência)
-# ==========================================
+#1. MOTOR PREDITIVO (Velocidade e Tendência)
+
 def calcular_velocidade_suavizada(leituras_supabase: list) -> dict:
     """
     Recebe as últimas 4 a 5 leituras (aprox. 1 hora) do Supabase.
@@ -60,9 +59,9 @@ def calcular_velocidade_suavizada(leituras_supabase: list) -> dict:
         "confiavel": True
     }
 
-# ==========================================
-# 2. MOTOR DE IMPACTO HIPERLOCAL (Ocupação)
-# ==========================================
+
+#2. MOTOR DE IMPACTO HIPERLOCAL (Ocupação)
+
 def calcular_ocupacao_calha(nivel_atual: float, ruas_banco: list) -> list:
     """
     Traduz a cota hidrológica para o impacto percentual em cada rua.
@@ -83,5 +82,5 @@ def calcular_ocupacao_calha(nivel_atual: float, ruas_banco: list) -> list:
             "alerta": 80.0 <= ocupacao_pct < 100.0
         })
         
-    # Retorna a lista ordenada: as ruas em maior perigo aparecem primeiro
+    #Retorna a lista ordenada: as ruas em maior perigo aparecem primeiro
     return sorted(relatorio_ruas, key=lambda x: x['ocupacao_pct'], reverse=True)

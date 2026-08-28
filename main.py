@@ -7,6 +7,8 @@ import os
 from dotenv import load_dotenv
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 from supabase import create_client, Client
+from gerador_imagens import gerar_todas_imagens
+from android_bot import enviar_carrossel_android
 
 # ==========================================
 # CONFIGURAÇÕES INICIAIS
@@ -220,9 +222,27 @@ async def ciclo_principal():
         print(f" - {rua['nome']}: {rua['ocupacao_pct']}% [{alerta}]")
     print("="*40 + "\n")
 
-    # 6. Lógica de Encerramento (Limpeza de Gatilhos)
+    # 6. Lógica de Disparo (Instagram)
     if config['forcar_postagem']:
-        # TODO: Chamar aqui no futuro as funções enviar_carrossel_android / gerar_todas_imagens
+        logging.info("GATILHO MANUAL DETECTADO! Preparando imagens...")
+        
+        # Gera as imagens usando seus assets
+        caminhos_imagens = gerar_todas_imagens(
+            nivel_atual=nivel_atual,
+            tendencia=analise['tendencia'],
+            velocidade=analise['velocidade'],
+            leituras=leituras_recentes,
+            ruas=relatorio_ruas
+        )
+        
+        logging.info(f"Imagens geradas com sucesso: {caminhos_imagens}")
+        
+        if not config['kill_switch_ig']:
+            # Envia pro celular via ADB!
+            await enviar_carrossel_android(caminhos_imagens, deve_limpar=True)
+        else:
+            logging.info("Kill Switch ativo. As imagens foram geradas mas NÃO foram postadas.")
+            
         desativar_gatilho_postagem()
 
 if __name__ == "__main__":
