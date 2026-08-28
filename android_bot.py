@@ -32,7 +32,7 @@ async def limpar_stories_antigos():
     tempo_macro = 30 
     print(f"   Aguardando {tempo_macro}s para a faxina...")
     await asyncio.sleep(tempo_macro)
-    print("✅ Limpeza concluída.")
+    print("Limpeza concluída.")
 
 async def enviar_uma_imagem(caminho_imagem):
     nome_arquivo = "alerta_story.png"
@@ -51,7 +51,7 @@ async def enviar_uma_imagem(caminho_imagem):
     executar_adb(["shell", "am", "broadcast", "-a", "POSTAR_STORY", "-p", "com.arlosoft.macrodroid"])
 
 async def enviar_carrossel_android(lista_caminhos, deve_limpar=False):
-    print("\n🚀 --- INICIANDO POSTAGEM ANDROID ---")
+    print("\n--- INICIANDO POSTAGEM ANDROID ---")
     acordar_celular()
     
     if deve_limpar:
@@ -63,7 +63,7 @@ async def enviar_carrossel_android(lista_caminhos, deve_limpar=False):
     tempo_por_story = 35 
     
     for i, imagem in enumerate(lista_caminhos):
-        print(f"\n📸 Postando {i+1}/{len(lista_caminhos)}...")
+        print(f"\nPostando {i+1}/{len(lista_caminhos)}...")
         try:
             await enviar_uma_imagem(imagem)
             print(f"⏳ Dando {tempo_por_story}s para o MacroDroid trabalhar...")
@@ -71,5 +71,5 @@ async def enviar_carrossel_android(lista_caminhos, deve_limpar=False):
         except Exception as e:
             print(f"Erro ao postar imagem {i+1}: {e}")
             
-    print("✅ Ciclo Android finalizado.")
+    print("Ciclo Android finalizado.")
     dormir_celular()
