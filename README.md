@@ -1,4 +1,4 @@
-# 🌊 SAD - Sistema de Apoio à Decisão (Alerta Enchente CDV)
+#  SAD - Sistema de Apoio à Decisão (Alerta Enchente CDV)
 
 ![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-brightgreen)
 ![Versão](https://img.shields.io/badge/Versão-1.0%20(MVP)-blue)
@@ -12,7 +12,7 @@ O sistema consolida dados telemetricos em tempo real, gerencia o estado operacio
 
 ---
 
-## 🎯 Arquitetura do Sistema
+##  Arquitetura do Sistema
 
 O projeto é dividido em três camadas principais operando de forma assíncrona:
 
@@ -30,7 +30,7 @@ O projeto é dividido em três camadas principais operando de forma assíncrona:
 
 ---
 
-## 🚀 Arquitetura de Comunicação (ADR 001)
+##  Arquitetura de Comunicação (ADR 001)
 
 ### O Desafio
 Plataformas como o Instagram (Meta) possuem algoritmos rígidos contra bots. Em um contexto de Defesa Civil, ter a conta banida durante um desastre natural por uso de APIs não-oficiais (ex: `instagrapi`) é um risco inaceitável.
@@ -44,7 +44,7 @@ O disparo de mensagens foi desenhado para imitar 100% o comportamento humano:
 
 ---
 
-## 📂 Estrutura de Pastas
+##  Estrutura de Pastas
 
 ```text
 /

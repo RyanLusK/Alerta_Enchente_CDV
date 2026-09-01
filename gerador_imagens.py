@@ -158,7 +158,7 @@ def gerar_placares_paginados(relatorio_ruas):
             y_pos += ESPACO_VERTICAL
 
         if i < len(paginas) - 1:
-            draw.text((centro_x, 1850), "Continua no próximo story... ➡️", font=font_detalhe, fill=COR_BRANCA, anchor="mm")
+            draw.text((centro_x, 1850), "Continua no próximo story... ️", font=font_detalhe, fill=COR_BRANCA, anchor="mm")
 
         caminho = os.path.join(PASTA_OUTPUT, f"placar_ruas_parte_{i+1}.png")
         img.save(caminho)

@@ -9,18 +9,18 @@ def executar_adb(comando_lista):
     subprocess.run([cmd_adb] + comando_lista, check=False)
 
 def acordar_celular():
-    print("📱 Acordando o celular...")
+    print(" Acordando o celular...")
     executar_adb(["shell", "input", "keyevent", "KEYCODE_WAKEUP"])
     executar_adb(["shell", "input", "swipe", "500", "2000", "500", "1000", "200"])
     executar_adb(["shell", "settings", "put", "system", "screen_brightness", "1"])
 
 def dormir_celular():
-    print("💤 Colocando celular para dormir...")
+    print(" Colocando celular para dormir...")
     executar_adb(["shell", "input", "keyevent", "KEYCODE_HOME"])
     executar_adb(["shell", "input", "keyevent", "KEYCODE_SLEEP"])
 
 async def limpar_stories_antigos():
-    print("🧹 Iniciando ROTINA DE FAXINA...")
+    print(" Iniciando ROTINA DE FAXINA...")
     executar_adb(["shell", "am", "force-stop", "com.instagram.android"])
     await asyncio.sleep(2)
     executar_adb(["shell", "monkey", "-p", "com.instagram.android", "-c", "android.intent.category.LAUNCHER", "1"])

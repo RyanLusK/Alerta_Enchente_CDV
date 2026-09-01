@@ -209,16 +209,16 @@ async def ciclo_principal():
     
     # 5. Painel de Log Visual
     print("\n" + "="*40)
-    print(f"📊 RESULTADO DO CICLO {'[MODO TESTE]' if config['modo_teste'] else '[PRODUÇÃO]'}")
+    print(f" RESULTADO DO CICLO {'[MODO TESTE]' if config['modo_teste'] else '[PRODUÇÃO]'}")
     print("="*40)
-    print(f"🌊 Nível Atual (Timóteo): {nivel_atual} cm")
-    print(f"📈 Tendência: {analise['tendencia']} ({analise['velocidade']} cm/h)")
-    print("\n⚙️  STATUS OPERACIONAL:")
-    print(f" - Trava do Instagram (Kill Switch): {'🔒 ATIVADA (Bloqueado)' if config['kill_switch_ig'] else '✅ Liberado'}")
-    print(f" - Gatilho Manual: {'⚠️ DISPARADO' if config['forcar_postagem'] else 'Aguardando'}")
-    print("\n🏘️ IMPACTO NAS RUAS:")
+    print(f" Nível Atual (Timóteo): {nivel_atual} cm")
+    print(f" Tendência: {analise['tendencia']} ({analise['velocidade']} cm/h)")
+    print("\n️  STATUS OPERACIONAL:")
+    print(f" - Trava do Instagram (Kill Switch): {' ATIVADA (Bloqueado)' if config['kill_switch_ig'] else ' Liberado'}")
+    print(f" - Gatilho Manual: {'️ DISPARADO' if config['forcar_postagem'] else 'Aguardando'}")
+    print("\n️ IMPACTO NAS RUAS:")
     for rua in relatorio_ruas[:4]: # Mostra só as 4 piores no log pra não poluir
-        alerta = "⚠️ CRÍTICO!" if rua['critico'] else "Ok"
+        alerta = "️ CRÍTICO!" if rua['critico'] else "Ok"
         print(f" - {rua['nome']}: {rua['ocupacao_pct']}% [{alerta}]")
     print("="*40 + "\n")
 
